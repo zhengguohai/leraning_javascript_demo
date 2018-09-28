@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068ea237-3260-4259-8cc6-0b609d9b140d" name="Default" comment="" />
+    <list default="true" id="068ea237-3260-4259-8cc6-0b609d9b140d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixi/pixi.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/pixi.min.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -23,20 +26,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="01_hello_world.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="01_hello_world.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/01_hello_world.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pixi.min.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pixi.min.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="465">
+              <caret line="9721" column="23" selection-start-line="9721" selection-start-column="23" selection-end-line="9721" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -91,6 +94,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/hello_world.html" />
         <option value="$PROJECT_DIR$/examples/pixi.html" />
+        <option value="$PROJECT_DIR$/pixi/pixi.min.js" />
       </list>
     </option>
   </component>
@@ -114,7 +118,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,6 +139,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -182,11 +186,12 @@
       <workItem from="1538122537495" duration="802000" />
       <workItem from="1538123545086" duration="9000" />
       <workItem from="1538123578826" duration="159000" />
+      <workItem from="1538124812386" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3362000" />
+    <option name="totallyTimeSpent" value="3419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="23" width="1657" height="1027" extended-state="6" />
@@ -218,7 +223,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hello_world.html" />
     <entry file="file://$PROJECT_DIR$/demo2_实时显示闹钟.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -419,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/01_helloWorld.html" />
     <entry file="file://$PROJECT_DIR$/texturePackerFiles/treasureHunter.tps" />
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -439,5 +436,19 @@
     <entry file="file://$PROJECT_DIR$/hello_world.html" />
     <entry file="file://$PROJECT_DIR$/examples/01_helloWorld.html" />
     <entry file="file://$PROJECT_DIR$/examples/pixi.html" />
+    <entry file="file://$PROJECT_DIR$/examples/01_hello_world.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="9721" column="23" selection-start-line="9721" selection-start-column="23" selection-end-line="9721" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
