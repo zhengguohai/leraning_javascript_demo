@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="068ea237-3260-4259-8cc6-0b609d9b140d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixi/pixi.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/pixi/pixi.min.js" afterDir="false" />
-    </list>
+    <list default="true" id="068ea237-3260-4259-8cc6-0b609d9b140d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -38,8 +35,8 @@
       <file leaf-file-name="pixi.min.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="9721" column="23" selection-start-line="9721" selection-start-column="23" selection-end-line="9721" selection-end-column="23" />
+            <state relative-caret-position="66">
+              <caret line="9700" column="8" selection-start-line="9700" selection-start-column="8" selection-end-line="9700" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -186,12 +183,12 @@
       <workItem from="1538122537495" duration="802000" />
       <workItem from="1538123545086" duration="9000" />
       <workItem from="1538123578826" duration="159000" />
-      <workItem from="1538124812386" duration="10000" />
+      <workItem from="1538124812386" duration="120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3419000" />
+    <option name="totallyTimeSpent" value="3529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="23" width="1657" height="1027" extended-state="6" />
@@ -445,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="9721" column="23" selection-start-line="9721" selection-start-column="23" selection-end-line="9721" selection-end-column="23" />
+        <state relative-caret-position="66">
+          <caret line="9700" column="8" selection-start-line="9700" selection-start-column="8" selection-end-line="9700" selection-end-column="8" />
         </state>
       </provider>
     </entry>
