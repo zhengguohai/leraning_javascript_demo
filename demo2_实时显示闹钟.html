@@ -12,6 +12,7 @@
         elt.innerHTML = now.toLocaleTimeString(); //让elt来显示它
         setTimeout(displayTime, 1000); //在1秒后再次执行
     }
+
     window.onload = displayTime; //当onload事件发生的时候开始显示时间
     </script>
     <style>                      /*钟表的样式*/
@@ -31,3 +32,36 @@
 <span id="clock"></span>
 </body>
 </html>
+
+
+<!--<!doctype html>-->
+<!--<meta charset="utf-8">-->
+<!--<head>-->
+    <!--<title>标题浏览器显示的</title>-->
+    <!--<script>-->
+        <!--&lt;!&ndash;实现脚本的&ndash;&gt;-->
+        <!--function showTime() {-->
+            <!--var nba = document.getElementById("clock_demo");//找到对应的ID-->
+            <!--var now = new Date();//获取当前的时间-->
+            <!--nba.innerHTML = now.toLocaleTimeString();//让这个ID显示出来-->
+            <!--setTimeout(showTime, 1000);//在两秒之后显示出来-->
+        <!--}-->
+
+        <!--window.onload = showTime;-->
+    <!--</script>-->
+    <!--<style>-->
+        <!--#clock {-->
+            <!--font: bold 24pt Sans;-->
+            <!--background: #dddf;-->
+            <!--padding: 20px;-->
+            <!--border: solid black 2px;-->
+            <!--border-radius: 10px;-->
+        <!--}-->
+    <!--</style>-->
+<!--<body>-->
+<!--&lt;!&ndash;这个body就是文档显示的&ndash;&gt;-->
+<!--<h1>显示点击的文字</h1>-->
+<!--<span id="clock_demo"> &lt;!&ndash;这个是输出时钟的&ndash;&gt;-->
+<!--</span>-->
+<!--</body>-->
+<!--</head>-->
