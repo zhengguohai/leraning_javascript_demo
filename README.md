@@ -1,2 +1,1 @@
-# leraning_javascript_demo
-learing_demo
+学习PIXI的后台执行效果
