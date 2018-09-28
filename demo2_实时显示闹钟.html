@@ -1,0 +1,34 @@
+<!--2018.9.28-->
+<!DOCTYPE html> <!--这是一个HTML5文件-->
+<html>  <!--根节点-->
+<meta charset="utf-8"> <!--这是一个显示转化字号的文件-->
+<head>  <!--标题、脚本和样式都要放在这里显示-->
+    <title>时刻显示实时闹钟出现</title>
+    <script> //js代码部分实现功能的
+    //定义一个函数用以显示当前时间
+    function displayTime() {
+        var elt = document.getElementById("clock"); //通过ID等于clock找到元素就是这个歌ID的元素
+        var now = new Date(); //得到当前的时间是调用的方法的这个是固定写的调用时间都是这么去写
+        elt.innerHTML = now.toLocaleTimeString(); //让elt来显示它
+        setTimeout(displayTime, 1000); //在1秒后再次执行
+    }
+
+    window.onload = displayTime; //当onload事件发生的时候开始显示时间
+    </script>
+    <style>                      /*钟表的样式*/
+    #clock { /*定义id = clock的元素的样式*/
+        font: bold 24pt sans; /*使用粗体大号字*/
+        background: yellow; /*定义一个蓝灰背景*/
+        padding: 10px; /*周围有一圈空白*/
+        border: solid black 2px; /*定义纯黑色边框*/
+        border-radius: 10px; /*定义圆角（如果浏览器支持的话）*/
+    }
+    </style>
+</head>
+<body>
+<h1>
+    时刻显示闹钟
+</h1>
+<span id="clock"></span>
+</body>
+</html>

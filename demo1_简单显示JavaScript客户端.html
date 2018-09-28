@@ -1,0 +1,51 @@
+<!--2018.9.28-->
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <style>
+        /*本页的css样式表*/
+        .reveal * {
+            display: none; /*不显示，隐藏*/
+        }
+
+        /*class = "reveal"的元素的子元素都不显示*/
+        .reveal *.handle {
+            display: block; /*显示，不隐藏*/
+        }
+
+        /*除了class = handle的元素*/
+    </style>
+
+    <script>
+        //所有的页面逻辑在onload事件之后启动
+        window.onload = function () {
+            //找到所有的class名为reveal的容器元素
+            var elements = document.getElementsByClassName("reveal");
+            for (var i = 0; i < elements.length; i++) { //对每个元素进行遍历
+                var elt = elements[i];
+                //找到容器中的handle元素
+                var title = elt.getElementsByClassName("handle")[0];//为什么要从0开始
+                //当单击这个元素时，呈现剩下的内容
+                addRevealHandler(title, elt);
+            }
+
+            function addRevealHandler(title, elt) {
+                title.onclick = function () {
+                    if (elt.className == "reveal") {
+                        elt.className = "revealed";
+                    } else if (elt.className == "revealed") {
+                        elt.className = "reveal";
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <h1 class="handle">点击我就可出现对应的文字出来</h1>
+    <p>这就是点击之后出现对应的文字2018.9.28显示出现</p>
+</div>
+</body>
+</html>
