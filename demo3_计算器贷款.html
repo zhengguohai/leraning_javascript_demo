@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>贷款计算机</title>
+
+    <!-- 这是一个css样式，接着就是写一个样式，把下面的表格拿过来到样式当中去执行-->
+    <style>
+
+        .output {
+            font-weight: bold; /* 给输出结果定义粗体*/
+        }
+
+        #payment {
+            text-decoration: underline; /* 加上下划线*/
+        }
+
+        #graph {
+            border: solid black 1px; /*图表有一个像素的边框并且设置黑色的边框*/
+        }
+
+        td, td {
+            vertical-align: top; /*表格单元对齐方式为顶端对齐*/
+        }
+
+        input {
+            color: #5a4fff; /*对输入的方方框框里面的字体做颜色更改*/
+        }
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<!-- 先写好这个表的版本先-->
+<table>
+
+
+    <tr>
+        <th>输入贷款数据：</th>
+        <td></td>
+        <th>贷款余额，累积权益和利息支付</th>
+    </tr>
+
+
+    <tr>
+        <td>贷款金额（$)：</td>
+        <td><input id="amount" onchange="calculate();"></td>
+        <td rowspan=8>
+            <canvas id="graph" width="450" height="260"></canvas>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>年利率（％）：</td>
+        <td>
+            <input id="apr" onchange="calculate();">
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>还款期（年）：</td>
+        <td><input id="years" onchange="calculate();"></td>
+    </tr>
+
+
+    <tr>
+        <td>Zipcode（寻找贷方)：</td>
+        <td><input id="zipcode" onchange="calculate();"></td>
+    </tr>
+
+
+    <tr>
+        <th>近似付款：</th>
+        <td>
+            <button onclick="calculate();">计算</button>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>每月支付：</td>
+        <td>$
+            <span class="output" id="payment"></span>
+    </tr>
+
+
+    <tr>
+        <td>付款总额：</td>
+        <td>$
+            <span class="output" id="total"></span>
+    </tr>
+
+
+    <tr>
+        <td>总利息：</td>
+        <td>$
+            <span class="output" id="totalinterest"></span>
+    </tr>
+
+
+    <tr>
+        <th>主办单位：</th>
+        <td colspan=10>
+            向这些优秀贷款人之一申请贷款：
+            <div id="lenders"></div>
+        </td>
+    </tr>
+
+</table>
+
+
+<!--js部分代码实现功能 -->
+<script>
+
+
+    /**2018.9.25
+     * 如何读取数组元素和写数组的元素
+     *
+     * for example：
+     * var value = a[0];读第0个元素
+     * a[1] = 2;写第1个元素
+     *
+     **/
+
+
+
+
+
+
+
+
+    /**2018.8.22pm
+     1、如何在文档中查找元素；
+     2、如何通过表单input元素来获取用户的输入数据；
+     3、如何通过文档元素来设置HTML内容；
+     4、如何将数据存储在浏览器当中；
+     5、如何使用脚本发起http请求；
+     6、如何利用 < canvas > 元素绘图*/
+
+    /**
+     *2018.8.22Pm
+     * author：zhengguohai
+     */
+
+
+    /**在输入input的时候调用该方法到HTML当中去*/
+    function calculate() {
+
+        //查找文档中用于输入和输出的元素
+        var amount = document.getElementById("amount"); //贷款金额（$)输出的id
+        var apr = document.getElementById("apr"); //年利率（％）的ID
+        var years = document.getElementById("years");//还款期（年）的ID
+        var zipcode = document.getElementById("zipcode");//Zipcode（寻找贷方)的ID
+        var payment = document.getElementById("payment");//每月支付的ID
+        var total = document.getElementById("total");//付款总额的ID
+        var totalinterest = document.getElementById("totalinterest");//总利息的ID
+
+
+        //假设所有的输入都是合法的话，那么将从input元素当获取输入的数据
+        //将百分比格式转换为小数格式，并从年利润转化为月利率
+        //将年度赔付转换为月度赔付
+        var principal = parseFloat(amount.value);//principal：主要 parseFloat() 函数可解析一个字符串，并返回一个浮点数。parseInt() 函数可解析一个字符串，并返回一个整数。
+        var interest = parseFloat(apr.value) / 100 / 12; //interest：感兴趣
+        var payments = parseFloat(years.value) * 12; //payments:支付
+
+
+        //现在开始计算月度赔付的数据
+        /** 复杂的算术运算，这些复杂运算通过作为Math对象的属性定义的函数和常量来实现*/
+        var x = Math.pow(1 + interest, payments);//Math.pow()进行幂次运算
+        var monthly = (principal * x * interest) / (x - 1);//(X-1)
+
+
+        //如果结果没有超过js能表示的数字范围之内，并且用户输入的也正确的话，所展示的结果就是合法的和正确的
+        /**isFinite() 函数用于检查其参数是否是无穷大*/
+        if (isFinite(monthly)) {
+            //将数据填充至输出字段的位置,四舍五入到小数点后两位数字
+            /**innerHTML 属性设置或返回表格行的开始和结束标签之间的 HTML,改变文本, URL, 及链接目标,   toFixed() 方法可把 Number 四舍五入为指定小数位数的数字*/
+            payment.innerHTML = monthly.toFixed(2);//每月支付四舍五入到两位
+            total.innerHTML = (monthly * payments).toFixed(2);//付款总额四舍五入到两位
+            totalinterest.innerHTML = ((monthly * payments) - principal).toFixed(2);//总利息四舍五入到两位
+
+            //将用户的输入数据存下来，这样在下次访问的时候也可以读取数据
+            save(amount.value, apr.value, years.value, zipcode.value);
+
+
+            //找到并展示本地房贷人,但忽略网络的错误
+            try { //捕获这段代码抛出的所有的异常
+                getLenders(amount.value, apr.value, years.value, zipcode.value);
+            }
+            catch (e) {
+                /*忽略这些异常部分*/
+            }
+            //最后，用图标展示贷款余额、利息和资产收益
+            chart(principal, interest, monthly, payments);
+
+        }
+        else {
+            //计算结果不是数字或者是无穷大，意味着输入数据是非或不完整的
+            //清空之前的输出数据
+            payment.innerHTML = "";//清空元素的文本内容
+            total.innerHTML = "";//一样
+            totalinterest.innerHTML = "";//同理
+            chart();//不传参数的话，就是清楚图表
+        }
+    }
+
+
+    //将用户的输入保存至localStorage对象的属性当中
+    //这些属性再一次访问还会继续保持在原有的位置中
+    //如果你是在浏览器当中按照file://URL的方式直接打开本地文件
+    //则无法在某些浏览器中使用存储功能（比如Firefox浏览器等）
+    //而通过HTML打开文件是可以的
+
+
+    /**2018.8.23*/
+    /**保存的方法名开始写方法就是给调用的方法单独一个一个去写这些方法执行的代码部分*/
+    function save(amount, apr, years, zipcode) {
+
+        if (window.localStorage) { //只有你打开浏览器的时候才会执行这里的代码
+            localStorage.loan_amount = amount;
+            localStorage.loan_apr = apr;
+            localStorage.loan_years = years;
+            localStorage.loan_zipcode = zipcode;
+        }
+    }
+
+    /**2018.8.23*/
+    /*在文档首次加载的时候，将会尝试还原输入字段*/
+    window.onload = function () {
+        //如果浏览器支持本地存储并且上次的保存是存在的
+        if (window.localStorage && localStorage.loan_amount) {
+            document.getElementById("amount").value = localStorage.loan_amount;
+            document.getElementById("apr").value = localStorage.loan_apr;
+            document.getElementById("years").value = localStorage.loan_years;
+            document.getElementById("zipcode").value = localStorage.loan_zipcode;
+        }
+    }
+
+    //将用户发送到服务器脚本
+    //返回一个本地放款人的链接表，在这个例子当中并没有实现这种查找放款人的服务
+    //但如果该服务存在，则该函数会使用它
+    function getLenders(amount, apr, years, zipcode) {
+
+        //如果浏览器不支持XMLHttpRequest对象，则退出
+        if (!window.XMLHttpRequest) return;
+
+        //找到要显示放款人列表的元素
+        var ad = document.getElementById("lenders");
+        if (!ad) return; //如果返回为空，则退出
+
+        //将用户输入数据进行URL编码，并作为查询参数附加在URL里
+        var url = "getLenders.php" +  //处理数据的URL地址
+            "?amt=" + encodeURIComponent(amount) +
+            "&apr=" + encodeURIComponent(apr) +
+            "&yrs=" + encodeURIComponent(years) +
+            "&zip=" + encodeURIComponent(zipcode);
+
+
+        //通过XMLHttpRequest对象来提取返回的数据
+        var req = new XMLHttpRequest(); //发起一个新的请求
+        req.open("GET", url); //通过URL发起一个http get请求
+        req.send(null); //不带任何正文发送这个请求
+
+
+        //返回数据之前，注册了一个事件处理函数，这个处理函数，将会在服务器的响应返回至客户端的时候调用，这种异步编程模型在客户端js中是非常常见
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                //如果代码运行到这里，说明我们得到了一个合法并且完整的http响应
+                var response = req.responseText; //HTTP响应是以字符串的形式呈现的
+                var lenders = JSON.parse(response); //将其解析为JS数组
+
+                //将数组中的放贷人对象转换为HTML字符串形式
+                var list = "";
+                for (var i = 0; i < lenders.length; i++) {
+                    list += "<li><a href=' " + lenders[i].url + " ' >" + lenders[i].name + "</a>";
+                }
+
+                //将数据在HTML元素中呈现出来
+                ad.innerHTML = "<ul>" + list + "</ul>";
+            }
+        }
+
+    }
+
+
+    //在HTML<canvas>元素中用图标展示月度贷款余额、利息和资产收益
+    //如果不传入参数的话，则清空之前的图标数据
+    function chart(pricipal, interest, monthly, payments) {
+
+        var graph = document.getElementById("graph"); //得到<canvas>标签
+        graph.width = graph.width; //用一种巧妙的手法清楚并重置画布
+
+        //如果不传入参数，或者浏览器不支持画布，则直接返回
+        if (arguments.length == 0 || !graph.getContext) return;
+
+        //获得画布元素的context对象，这个对象定义了一组绘画API
+        var g = graph.getContext("2d"); //所有的绘画操作都将基于这个对象
+        var width = graph.width,
+            height = graph.height; //获得画布的大小
+
+
+        /**2018.8.28
+         * 这里的函数作用是将付款数字和美元数据转化为像素*/
+        function paymentToX(n) {
+            return n * width / payments;
+        }
+
+        function amountToY(a) {
+            return height - (a * height / (monthly * payments * 1.05));
+        }
+
+        //付款数据是一条从（0，0）到（payments,monthly*payments）的直线
+        g.moveTo(paymentToX(0), amountToY(0)); //从左下方开始
+        g.lineTo(paymentToX(payments), amountToY(monthly * payments)); //绘至右上方
+        g.lineTo(paymentToX(payments), amountToY(0)); //再至右下方
+        g.closePath(); //将结尾连接至开头
+        g.fillStyle = "#f88"; //亮红色
+        g.fill(); //填充矩形
+        g.font = "bold 12px sans-serif"; //定义一种字体
+        g.fillText("Total Interest Payments", 20, 20); //将文字绘制图例中
+
+        //很多资产数据并不是线性的，很难讲其反映至图表中
+        var equity = 0;
+        g.beginPath(); //开始绘制新图形
+        g.moveTo(paymentToX(0), amountToY(0)); //从左下方开始
+        for (var p = 1; p <= payments; p++) {
+            //计算出每一笔赔付的利息
+            var thisMonthsInterest = (pricipal - equity) * interest;
+            equity += (monthly - thisMonthsInterest); //得到资产额
+            g.lineTo(paymentToX(p), amountToY(equity)); //讲数据绘制画布上
+        }
+        g.lineTo(paymentToX(payments), amountToY(0)); //将数据绘制至x轴
+        g.closePath(); //讲线条尾连接至线条开头
+        g.fillStyle = "green"; //使用绿色绘制图形
+        g.fill(); //曲线之下的部分均填充
+        g.fillText("Total Equity", 20, 35); //文本颜色设置为绿色
+
+        //再次循环，余额数据显示为黑色粗线条
+        var bal = pricipal;
+        g.beginPath()
+        g.moveTo(paymentToX(0), amountToY(bal));
+        for (var p = 1; p <= payments; p++) {
+            var thisMonthsInterest = bal * interest;
+            bal -= (monthly - thisMonthsInterest); //得到资产额
+            g.lineTo(paymentToX(p), amountToY(bal));//将直线连接至某点
+        }
+        g.lineWidth = 3; //将直线宽度加粗
+        g.stroke(); //绘制余额的曲线
+        g.fillStyle = "black"; //使用黑色字体
+        g.fillText("Loan Balance", 20, 50); //图例文字
+
+        //将年度数据在x轴
+        g.textAlign = "center"; //文字居中对齐
+        var y = amountToY(0); //y坐标设为0
+        for (var year = 1; year * 12 <= payments; year++) {
+            var x = paymentToX(year * 12);
+            g.fillRect(x - 0.5, y - 3, 1, 3); //开始绘制标记
+            if (year == 1) g.fillText("Year", x, y - 5); //在坐标轴做标记
+            if (year % 5 == 0 && year * 12 !== payments) //每五年的数据
+                g.fillText(String(year), x, y - 5);
+        }
+
+        //将赔付数额标记在右边界
+        g.textAlign = "right"; //文字右对齐
+        g.textBaseline = "middle"; //文字垂直居中
+        var ticks = [monthly * payments, pricipal]; //我们将要用到的两个点
+        var rightEdge = paymentToX(payments); //设置X坐标
+        for (var i = 0; i < ticks.length; i++) {  //对每两个点做循环
+            var y = amountToY(ticks[i]); //计算每个标记的Y坐标
+            g.fillRect(rightEdge - 3, y - 0.5, 3, 1); //绘制标记
+            g.fillText(String(ticks[i].toFixed(0)), //绘制文本
+                rightEdge - 5, y);
+        }
+    }
+
+
+</script>
+
+</body>
+
+</html>
+
+<!--上面就是参考资料上面去理解打出来的-->
+
+
+
