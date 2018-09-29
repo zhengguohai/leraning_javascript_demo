@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>创建精灵意思就是在原有的基础上加载一个容器进来</title>
+</head>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+    <!--同样的道理和之前的一样-->
+    let app = new PIXI.Application({
+            width: 256,
+            height: 256,
+            antialiasing: true,
+            transparent: false,
+            resolution: 1
+        }
+    );
+    // 将Pixi为您自动创建的画布添加到HTML文档中
+    document.body.appendChild(app.view);
+
+    // 加载一个图像，并运行“设置”功能，当它完成
+    PIXI.loader
+        .add("images/cat.png")
+        .load(setup);
+
+    // 这个“设置”函数将在图像加载后运行
+    function setup() {
+        let cat = new PIXI.Sprite(PIXI.loader.resources["images/cat.png"].texture);
+        console.log(cat, "-----cat----")
+        // 您还可以从纹理创建“猫”精灵，如下所示:
+        // let cat = new PIXI.Sprite(PIXI.TextureCache["images/cat.png"]);
+
+        // 就是把你自己创建好的对象放在这个APP上面去
+        app.stage.addChild(cat);
+    }
+</script>
+
+</body>
+</html>

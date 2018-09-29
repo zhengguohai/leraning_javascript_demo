@@ -1,0 +1,24 @@
+<!--2018.9.28-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+</head>
+<script src="../pixi/pixi.min.js"></script>
+<body>
+<script type="text/javascript">
+    let type = "WebGL"
+    if (!PIXI.utils.isWebGLSupported()) {
+        type = "canvas";
+    }
+    PIXI.utils.sayHello(type);
+
+
+</script>
+</body>
+</html>
+<!--写这个HTML的主要目的就是查看自己引入的第三方库连接PIXI是否成功，成功就会出现以下这些
+    PixiJS 4.4.5 - * canvas * http://www.pixijs.com/ ***三颗爱心出现
+ -->
+
