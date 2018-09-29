@@ -8,6 +8,15 @@
 <body>
 <script src="../pixi/pixi.min.js"></script>
 <script>
+
+
+    //注意这里使用别名2018.9.29
+    // 将所有的PIXI对象和方法改成别名之后重写加载和显示图像的代码
+    let Application = PIXI.Application;
+    let loader = PIXI.loader;
+    let resources = PIXI.loader.resources;
+    let Sprite = PIXI.Sprite;
+
     <!--同样的道理和之前的一样-->
     let app = new PIXI.Application({
             width: 1136,
@@ -21,18 +30,31 @@
     document.body.appendChild(app.view);
 
     // 加载一个图像，并运行“设置”功能，当它完成
+    /*这是一个完全加载图像的code，调用setup函数方法并未加载图像创建一个精灵*/
     PIXI.loader
-        .add("images/cat.png")
+        .add([
+            "images/cat.png",
+            "images/blob.png",
+            "images/door.png",
+            "images/dungeon.png",
+            "images/explorer.png"
+        ])
         .load(setup);
 
     // 这个“设置”函数将在图像加载后运行
     function setup() {
-        let cat = new PIXI.Sprite(PIXI.loader.resources["images/cat.png"].texture);
+        //创建一个精灵
+        let cat = new Sprite(PIXI.loader.resources["images/cat.png"].texture); //注意这里就是已经在上面这个方法重新把PIXI对象和方法给一个方法了这样子就不需要在重新写多一次
+        let cat1 = new Sprite(PIXI.loader.resources["images/door.png"].texture);//注意这里使用别名2018.9.29
+        let TextureCache = PIXI.utils.TextureCache;
+        let texture = TextureCache["images/blob.png"];
         console.log(cat, "-----cat----")
-        // 您还可以从纹理创建“猫”精灵，如下所示:
-        // let cat = new PIXI.Sprite(PIXI.TextureCache["images/cat.png"]);
         // 就是把你自己创建好的对象放在这个APP上面去最终在浏览器上面显示出来
+        //需要stage.addChild方法把它（就是创建好的精灵放到pixi的舞台上面前面已经说过创建舞台的方法就是app这个就是创建舞台的方法）
         app.stage.addChild(cat);
+        cat.visible = true;
+        app.stage.removeChild(cat1);//移除这个精灵的创建
+        cat1.visible = true; //移除之后你想要在显示的话就不会再出现这个隐藏的功能了的
     }
 </script>
 
