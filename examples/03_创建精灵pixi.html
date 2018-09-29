@@ -1,3 +1,4 @@
+<!--2018.9.29精灵-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,8 @@
 <script>
     <!--同样的道理和之前的一样-->
     let app = new PIXI.Application({
-            width: 256,
-            height: 256,
+            width: 1136,
+            height: 640,
             antialiasing: true,
             transparent: false,
             resolution: 1
@@ -30,8 +31,7 @@
         console.log(cat, "-----cat----")
         // 您还可以从纹理创建“猫”精灵，如下所示:
         // let cat = new PIXI.Sprite(PIXI.TextureCache["images/cat.png"]);
-
-        // 就是把你自己创建好的对象放在这个APP上面去
+        // 就是把你自己创建好的对象放在这个APP上面去最终在浏览器上面显示出来
         app.stage.addChild(cat);
     }
 </script>
