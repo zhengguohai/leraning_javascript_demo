@@ -1,0 +1,76 @@
+<!--2018.9.29精灵-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>显示多个精灵出现</title>
+</head>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+
+    //注意这里使用别名2018.9.29
+    // 将所有的PIXI对象和方法改成别名之后重写加载和显示图像的代码
+    let Application = PIXI.Application;
+    let loader = PIXI.loader;
+    let resources = PIXI.loader.resources;
+    let Sprite = PIXI.Sprite;
+
+    <!--同样的道理和之前的一样-->
+    let app = new PIXI.Application({
+            width: 1136,
+            height: 640,
+            antialiasing: true,
+            transparent: false,
+            resolution: 1
+        }
+    );
+    // 将Pixi为您自动创建的画布添加到HTML文档中
+    document.body.appendChild(app.view);
+
+    // 加载一个图像，并运行“设置”功能，当它完成
+    /*这是一个完全加载图像的code，调用setup函数方法并未加载图像创建一个精灵*/
+    PIXI.loader
+        .add([
+            "images/cat.png",
+            "images/blob.png",
+            "images/door.png",
+            "images/dungeon.png",
+            "images/explorer.png"
+        ])
+        .on("progress", loadProgressHandler)
+        .load(setup);
+
+
+    function loadProgressHandler(loader, resource) {
+        console.log("loading:" + resource.url);
+        console.log("progress:" + loader.progress + "%");
+    }
+
+
+    // 这个“设置”函数将在图像加载后运行
+    function setup() {
+        console.log("------setup-----");
+        let cat = new Sprite(resources["images/cat.png"].texture)
+        let blob = new Sprite(resources["images/blob.png"].texture);
+        let explorer = new Sprite(resources["images/explorer.png"].texture);
+        let dungeon = new Sprite(resources["images/dungeon.png"].texture);
+
+        app.stage.addChild(cat);
+        app.stage.addChild(blob);
+        app.stage.addChild(explorer);
+        app.stage.addChild(dungeon);
+
+        //分别设置后面图片要显示的位置，如果不设置的话就会重叠
+        blob.position.set(82, 82);
+        explorer.position.set(128, 128);
+        dungeon.position.set(160, 160);
+        dungeon.width = 88;
+        dungeon.height = 88;
+    }
+</script>
+
+</body>
+</html>
+<!--本小结主要做的事情是如何创建多个精灵显示，以及如何显示在精灵上面的界面-->
