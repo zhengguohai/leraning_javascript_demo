@@ -11,7 +11,7 @@
 
 
     //注意这里使用别名2018.9.29
-    // 将所有的PIXI对象和方法改成别名之后重写加载和显示图像的代码
+    //将所有的PIXI对象和方法改成别名之后重写加载和显示图像的代码
     let Application = PIXI.Application;
     let loader = PIXI.loader;
     let resources = PIXI.loader.resources;
@@ -37,15 +37,16 @@
             "images/blob.png",
             "images/door.png",
             "images/dungeon.png",
-            "images/explorer.png"
+            "images/explorer.png",
+            // "images/animals.png"
         ])
-        .on("progress", loadProgressHandler)
+        .on("progress", loadProgressHandtler) //这里progress主要是在主要库当特殊的函数，会打印出对应的值百分百性能问题
         .load(setup);
 
 
     function loadProgressHandler(loader, resource) {
-        console.log("loading:" + resource.url);
-        console.log("progress:" + loader.progress + "%");
+        console.log("-----加载loading-----:" + resource.url);//URL也是特殊封装好的函数
+        console.log("-----进度条是多少progress-----:" + loader.progress + "%");
     }
 
 
@@ -56,15 +57,18 @@
         let blob = new Sprite(resources["images/blob.png"].texture);
         let explorer = new Sprite(resources["images/explorer.png"].texture);
         let dungeon = new Sprite(resources["images/dungeon.png"].texture);
+        // let animals = new Sprite(resources["images/animals.png"].texture);
 
         app.stage.addChild(cat);
         app.stage.addChild(blob);
         app.stage.addChild(explorer);
         app.stage.addChild(dungeon);
+        // app.stage.addChild(animals);
 
         //分别设置后面图片要显示的位置，如果不设置的话就会重叠
         blob.position.set(82, 82);
         explorer.position.set(128, 128);
+        // animals.position.set(256, 256);
         dungeon.position.set(160, 160);
         dungeon.width = 88;
         dungeon.height = 88;
