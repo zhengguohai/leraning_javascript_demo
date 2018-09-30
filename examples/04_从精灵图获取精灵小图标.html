@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>从精灵图当中获取精灵这个有一点意思</title>
+</head>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+
+    let Application = PIXI.Application,
+        Container = PIXI.Container,
+        loader = PIXI.loader,
+        resources = PIXI.loader.resources,
+        TextureCache = PIXI.utils.TextureCache,
+        Sprite = PIXI.Sprite,
+        Rectangle = PIXI.Rectangle;
+
+    let app = new Application({
+            width: 256,
+            height: 256,
+            antialiasing: true,
+            transparent: false,
+            resolution: 1
+        }
+    );
+
+    document.body.appendChild(app.view);
+
+    loader
+        .add("images/tileset.png")
+        .load(setup);
+
+    function setup() {
+        let texture = TextureCache["images/tileset.png"];
+        let rectangle = new Rectangle(64, 256, 64, 64); //传入四个参数值，前面两个就是轴坐标x和y轴后面两个参数值分别定义了矩形的宽和高
+        // let rectangle = new Rectangle(x, y, width, height);
+        texture.frame = rectangle;
+        let rocket = new Sprite(texture);
+        rocket.x = 90;
+        rocket.y = 90;
+
+        app.stage.addChild(rocket);
+    }
+
+</script>
+</body>
+</html>
+
+<!--本小节难点就是要弄明白你的这个精灵图雪碧图的宽度和高度的计算以及每个单图像占的网格是多少
+在这里的时候显示的宽度和高度各显示192x192，每个单图像占的比例就是32x32然后就可以了剩下就是调用接口就行啦
+1、如果你想把这个雪碧图当中的其中一个精灵图显示出来的话，你首先是先把第二个参数更改，就是这个宽度的调整，
+2、直到对应为止就行了，剩下就是调整UI的问题;
+-->

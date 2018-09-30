@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068ea237-3260-4259-8cc6-0b609d9b140d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/03_04精灵角度显示.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/04_从精灵图获取精灵小图标.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/03_04精灵角度显示.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/03_04精灵角度显示.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,47 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="demo2_实时显示闹钟.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo2_实时显示闹钟.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="01_显示连接服务器是否成功.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/01_显示连接服务器是否成功.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" selection-start-line="9" selection-end-line="17" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pixi.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pixi/pixi.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184585">
               <caret line="9721" column="55" selection-start-line="9721" selection-start-column="55" selection-end-line="9721" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="02_创建舞台和画布.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/02_创建舞台和画布.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="03_02创建精灵pixi.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/03_02创建精灵pixi.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -74,37 +39,24 @@
       <file leaf-file-name="03_03精灵位置.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/03_03精灵位置.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="41" lean-forward="true" selection-end-line="58" selection-end-column="7" />
+            <state relative-caret-position="437">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="03_04精灵角度显示.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/03_04精灵角度显示.html">
+      <file leaf-file-name="04_从精灵图获取精灵小图标.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/04_从精灵图获取精灵小图标.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="907">
+              <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo1_简单显示JavaScript客户端.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo1_简单显示JavaScript客户端.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-            </state>
-          </provider>
+      <file leaf-file-name="tileset.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/images/tileset.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -148,6 +100,7 @@
         <option value="$PROJECT_DIR$/examples/04_精灵位置.html" />
         <option value="$PROJECT_DIR$/examples/03_04精灵的大小和比例.html" />
         <option value="$PROJECT_DIR$/examples/03_04精灵角度显示.html" />
+        <option value="$PROJECT_DIR$/examples/04_从精灵图获取精灵小图标.html" />
       </list>
     </option>
   </component>
@@ -160,11 +113,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="61" />
-    <option name="y" value="53" />
-    <option name="width" value="1530" />
-    <option name="height" value="957" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -182,6 +133,12 @@
               <item name="leraning_javascript_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="leraning_javascript_demo" type="462c0819:PsiDirectoryNode" />
               <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leraning_javascript_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leraning_javascript_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -243,18 +200,18 @@
       <workItem from="1538202616945" duration="3370000" />
       <workItem from="1538212726075" duration="9578000" />
       <workItem from="1538275237487" duration="3703000" />
-      <workItem from="1538291001794" duration="1248000" />
+      <workItem from="1538291001794" duration="5148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33373000" />
+    <option name="totallyTimeSpent" value="37273000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="53" width="1530" height="957" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20915033" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20892857" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -280,9 +237,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo3_计算器贷款.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello_world.html" />
     <entry file="file://$PROJECT_DIR$/demo2_实时显示闹钟.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -405,12 +359,6 @@
     <entry file="file://$PROJECT_DIR$/examples/images/door.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/cat.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/blob.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/02_创建舞台和画布.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -418,26 +366,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/animals.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/treasure.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/treasureHunter.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/images/treasureHunter.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/tileset.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/explorer.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/images/dungeon.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/03_02创建精灵pixi.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -481,17 +411,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/03_03精灵位置.html">
+    <entry file="file://$PROJECT_DIR$/examples/03_04精灵角度显示.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="41" lean-forward="true" selection-end-line="58" selection-end-column="7" />
+        <state relative-caret-position="342">
+          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/03_04精灵角度显示.html">
+    <entry file="file://$PROJECT_DIR$/examples/images/animals.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/blob.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/cat.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/dungeon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/explorer.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/treasureHunter.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/03_03精灵位置.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="437">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/treasure.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/images/tileset.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/04_从精灵图获取精灵小图标.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="907">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
         </state>
       </provider>
     </entry>

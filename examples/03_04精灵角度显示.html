@@ -1,64 +1,67 @@
-<!--2018.9.30精灵位置-->
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>精灵角度显示</title>
-</head>
-
+<!doctype html>
+<meta charset="utf-8">
+<title>Make a sprite from a tileset sub-image</title>
 <body>
 <script src="../pixi/pixi.min.js"></script>
 <script>
 
-    <!--封装好的方法进来-->
-    let Application = PIXI.Application;
-    let Conatiner = PIXI.Container;
-    let loader = PIXI.loader;
-    let resources = PIXI.loader.resources; //注意这里不要写错漏写一个
-    let TextureCache = PIXI.TextureCache;
-    let Sprite = PIXI.Sprite;
+    //Aliases
+    let Application = PIXI.Application,
+        Container = PIXI.Container,
+        loader = PIXI.loader,
+        resources = PIXI.loader.resources,
+        TextureCache = PIXI.utils.TextureCache,
+        Sprite = PIXI.Sprite,
+        Rectangle = PIXI.Rectangle;
 
-    //在设置一个容器并且设置这个容器的颜色
+    //Create a Pixi Application
     let app = new Application({
             width: 256,
             height: 256,
             antialiasing: true,
-            resolution: 1,
-            transparent: false
+            transparent: false,
+            resolution: 1
         }
     );
 
-    //引进这个文件在HTML当中去
+    //Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(app.view);
 
-    //添加缓存的图片
-    loader.add("images/cat.png");
-    loader.load(setup);
+    //load an image and run the `setup` function when it's done
+    loader
+        .add("images/tileset.png")
+        .load(setup);
 
-    //在写一个函数方法给上面这个调用
     function setup() {
-        let cat = new Sprite(resources["images/cat.png"].texture);
 
+        //Create the `tileset` sprite from the texture
+        let texture = TextureCache["images/tileset.png"];
 
-        cat.x = 96;
-        cat.y = 96;
+        //Create a rectangle object that defines the position and
+        //size of the sub-image you want to extract from the texture
+        let rectangle = new Rectangle(192, 128, 64, 64);
 
-        cat.height = 120;
-        cat.width = 96;
+        //Tell the texture to use that rectangular section
+        texture.frame = rectangle;
 
-        //角度rotation:旋转的意思
-        cat.rotation = 1.5;
-        cat.anchor = 0.5;
-        cat.anchor = 0.5;
+        //Create the sprite from the texture
+        let rocket = new Sprite(texture);
 
-        cat.scale.set(2, 2);
-        // cat.scale.x = 2;
-        // cat.scale.y = 2;
+        //Position the rocket sprite on the canvas
+        rocket.x = 32;
+        rocket.y = 32;
 
+        //Optionally use `pivot` to move the sprite's x and y position
+        /*
+        rocket.pivot.set(32, 32);
+        rocket.rotation = 0.3;
+        console.log(rocket.position)
+        */
 
-        app.stage.addChild(cat);
+        //Add the rocket to the stage
+        app.stage.addChild(rocket);
     }
-
 </script>
 </body>
-</html>
+
+
