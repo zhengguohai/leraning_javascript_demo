@@ -1,0 +1,101 @@
+<!doctype html>
+<meta charset="utf-8">
+<!--引入的是一个格式转化码-->
+<title>根据纹理图集制作一个精灵</title>
+<!--上面这个就是一个网页打开的时候出现给读者的名称是什么类型-->
+
+<body>
+
+<script src="../pixi/pixi.min.js"></script>
+<!--引入的是一个库没有它就不能执行所有的功能代码部分-->
+
+<script>
+
+    <!--特别要注意下面的每一个参数都不能少也不能多这里花了半个小时才找到原因所在-->
+    //就是把调用的方法提前封装好方便调用其实不写也是可以使用的
+    let Application = PIXI.Application;
+    let Container = PIXI.Container;
+    let loader = PIXI.loader;
+    let resources = PIXI.loader.resources;  //这里是最坑自己的总是少写或者没有写上loader
+    let TextureCache = PIXI.utils.TextureCache;//还有这里也是总是少些utils
+    let Sprite = PIXI.Sprite;
+    let Rectangle = PIXI.Rectangle;
+
+    //然后设置一个容器给这个容器设置好一定的比例大小出现
+    let app = new Application({
+            width: 512,
+            height: 512,
+            antialiasing: true,
+            transparent: false,
+            resolution: 1
+        }
+    );
+
+    //然后把这个这个容器添加到这个HTML当中去显示出现
+    document.body.appendChild(app.view);
+
+    //通过loader来把你当前的json文件给加载进去
+    loader.add("images/Picture.json")
+    loader.load(setup);
+
+    // let dungeon, explorer, treasure, id;
+
+    //在写一个函数的方法给上面这个load方法使用
+    function setup() {
+
+        //加载这个纹理进去到这个界面当中去执行
+        let dungeonTexture = TextureCache["dungeon.png"];
+        dungeon = new Sprite(dungeonTexture);
+        app.stage.addChild(dungeon);
+
+        //加载第二个精灵图进来创建精灵图
+        explorer = new Sprite(
+            resources["images/Picture.json"].textures["explorer.png"]
+            // 注意的是这里的explorer不要受到自己命名的影响只是一个图片的名称好分类
+        );
+        explorer.x = 68; //左边x轴只有左右在移动
+        explorer.y = app.stage.height / 2 - explorer.height / 2; //上下在移动
+        app.stage.addChild(explorer);
+
+
+        //加载另外一个精灵图进来
+        id = PIXI.loader.resources["images/Picture.json"].textures;
+        treasure = new Sprite(id["treasure.png"]);
+        app.stage.addChild(treasure);
+
+        treasure.x = app.stage.width - treasure.width - 68;
+        treasure.y = app.stage.height / 2 - treasure.height / 2;
+        app.stage.addChild(treasure);
+
+        //进入出口门
+        door = new Sprite(id["door.png"]);
+        door.position.set(32, 0);
+        app.stage.addChild(door);
+
+        //使用斑点
+        let numberOfBlobs = 8; //初始化这个头像的人物
+        let spacing = 48;
+        let xOffset = 150;
+
+        //写一个循环
+        for (let i = 0; i < numberOfBlobs; i++) {
+            let blob = new Sprite(id["explorer.png"]);
+            let x = spacing * i + xOffset;
+            let y = randomInt(0, app.stage.height - blob.height);
+            blob.x = x;
+            blob.y = y;
+            app.stage.addChild(blob);
+        }
+
+        //写一个函数方便给调用到这个函数的使用方法
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            //注意这里使用到了随机函数的方法也就是所有都使用到的Math.random()这个是通用的
+        }
+    }
+
+</script>
+
+</body>
+
+<!--2018.10.8-->
