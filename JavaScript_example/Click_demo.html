@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="my">click</button>
+<button id="btn">hhhhh</button>
+
+
+<script>
+    var b = document.getElementById("my");
+    b.onclick = function () {
+        alert("hhhhhhhhh");
+    };
+    b.addEventListener("click", function () {
+        alert("ggggggg");
+    }, false);
+</script>
+
+
+<script>
+    var bbb = document.getElementById("btn");
+    var handler = function () {
+        alert("");
+    };
+    if (bbb.addEventListener) {
+        bbb.addEventListener("click", handler, false);
+    }
+    else if (bbb.attachEvent) {
+        bbb.attachEvent("click", handler);
+    }
+    // bbb.addEventListener("click", function () {
+    //     alert("6666");
+    // }, false)
+</script>
+
+
+</body>
+</html>
