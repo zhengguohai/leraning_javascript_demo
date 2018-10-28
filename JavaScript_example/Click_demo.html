@@ -34,6 +34,18 @@
     // bbb.addEventListener("click", function () {
     //     alert("6666");
     // }, false)
+
+
+    function addEvent(target, type, handler) {
+        if (target.addEventListener)
+            target.addEventListener(type, handler, false);
+        elae
+        target.attachEvent("on" + type, function (event) {
+            return handler.call(target, event);
+        });
+        // target.addEventListener(type, handler, false);
+    }
+
 </script>
 
 
